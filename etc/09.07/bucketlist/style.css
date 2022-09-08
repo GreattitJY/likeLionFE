@@ -1,0 +1,53 @@
+.wrapper {
+    width: 280px;
+    margin: 100px auto;
+}
+
+body {
+    background-color: whitesmoke;
+}
+
+.box-header {
+    background-color: white;
+    border-radius: 20px 20px 0px 0px;
+    border-top: 1px solid gainsboro;
+    border-bottom: 2px solid gainsboro;
+    border-left: 1px solid gainsboro;
+    border-right: 4px solid gainsboro;
+}
+
+
+.box-main {
+    display: flow-root;
+    border-right: 4px solid gainsboro;
+    border-bottom: 2px solid gainsboro;
+    border-left: 2px solid gainsboro;
+    border-radius: 0px 0px 20px 20px;
+    background-color: whitesmoke;
+    padding: 15px;
+}
+
+.box-title {
+    margin-top: 30px;
+    padding-left: 15px;
+    border-left: 10px solid rgba(255, 0, 123, 0.865);
+    color: rgba(255, 0, 123, 0.865);
+}
+
+h2.box-list {
+    width: 200px;
+    margin: 10px auto;
+    font-size: 13px;
+    padding: 10px 15px 10px;
+    background-color: ghostwhite;
+    border: 3px solid gainsboro;
+    border-radius: 3px 3px 3px 3px;
+}
+
+#select {
+    color: skyblue;
+    border: 3px solid skyblue;
+    background-image: url(images/check.png);
+    background-repeat: no-repeat;
+    background-position: right 5px center;
+}
