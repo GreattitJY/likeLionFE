@@ -1,0 +1,184 @@
+:root {
+    font-family: 'Montserrat', sans-serif;
+	/*
+	font-weight: 500;
+	font-weight: 700;
+	*/
+}
+
+/* 타입셀렉터 초기화 및 블라인드 부분 */
+
+h1,
+h3, 
+p, 
+ul,
+dl,
+dt,
+dd, 
+li {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+li {
+	list-style: none;
+}
+
+body {
+	background-color: #673399;
+	/* opacity: 0.8; */
+}
+
+.blind {
+	display: none;
+}
+
+/* 전체 가운데 정렬 및 플렉스 설성 - 콘텐츠 방향은 세로 */
+
+.portfolio {
+	margin: 100px auto;
+	width: 1080px;
+	/* background-color: bisque; */
+	display: flex;
+	flex-direction: column;
+}
+
+/* 포트폴리오 헤더 부분 - 프로젝트 소개, 내부 콘텐츠 방향은 가로 */
+
+.portfolio__header {
+	height: 140px;
+	display: inline-flex;
+	align-items: center;
+}
+
+.portfolio__header h1 {
+	font-size: 40px;
+	color: white;
+	position: relative;
+	bottom: 6px;
+}
+
+.portfolio__header h1::before {
+	display: block;
+	position: relative;
+	top: 100px;
+	z-index: -1;
+	content: '';
+	background-color:  #ff4500;
+	width: 245px;
+	height: 21px;
+}
+.portfolio__header h1::after {
+	display: block;
+	position: relative;
+	bottom: 18px;
+	z-index: -1;
+	content: '';
+	background-color:  #ff4500;
+	width: 195px;
+	height: 21px;
+}
+
+.portfolio__header p {
+	height: fit-content;
+	line-height: 2;
+	width: 550px;
+	margin-left: 100px;
+	font-size: 14px;
+	line-height: 1.5;
+	color: #bd8fe8;
+}
+
+.portfolio__header p::before {
+	display: block;
+	position: relative;
+	top: 40px;
+	right: 95px;
+	content: '';
+	width: 60px;
+	height: 2px;
+	background-color: #bd8fe8;
+}
+/* 포트폴리오 메인 부분 - 프로젝트 지그재그 나열 */
+
+.portfolio__main {
+	margin-top: 100px;
+}
+
+/* 포트폴리오 리스트 외부 요소 - 마진, 방향 정렬*/
+
+.portfolio__list li {
+	display: flex;
+	/* background-color: white; */
+	/* z-index: -1; */
+}
+
+
+.portfolio__list li:nth-child(even) {
+	flex-direction: row-reverse;
+}
+
+.portfolio__list li + li {
+	margin-top: 24px;
+}
+/* 포트폴리오 리스트 내부 요소 */
+
+.portfolio__keyword {
+	opacity: 0.3;
+	width: 26%;
+	height: 180px;
+	color: white;
+	font-size: 30px;
+	text-align: center;
+	line-height: 180px;
+	background-color: #673399;
+	opacity: 0.8;
+}
+
+.portfolio__keyword-rest {
+	background-image: url(./images/photo01.png);
+	background-size: cover;
+}
+.portfolio__keyword-craft {
+	background-image: url(./images/photo02.png);
+	background-size: cover;
+}
+.portfolio__keyword-scrap {
+	background-image: url(./images/photo03.png);
+	background-size: cover;
+}
+
+.portfolio__list dl {
+	width: 800px;
+	padding: 24px;
+	margin: 0;
+	background-color: white;
+}
+
+.portfolio__list dt {
+	color: #673399;
+	font-size: 18px;
+	margin-bottom: 32px;
+}
+
+.portfolio__list dd {
+	font-size: 14px;
+	margin-left: 10px;
+}
+
+.portfolio__list dd + dd {
+	margin-top: 10px;
+}
+
+.portfolio__list dd::before {
+	content: '';
+	background-color: #bd8fe8;
+	display: inline-block;
+	height: 8px;
+	width: 8px;
+	border-radius: 50%;
+	border: 1px;
+	position: relative;
+	right: 10px;
+}
