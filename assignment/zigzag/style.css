@@ -1,5 +1,5 @@
 :root {
-    font-family: 'Montserrat', sans-serif;
+	font-family: 'Montserrat', sans-serif;
 	/*
 	font-weight: 500;
 	font-weight: 700;
@@ -9,12 +9,12 @@
 /* 타입셀렉터 초기화 및 블라인드 부분 */
 
 h1,
-h3, 
-p, 
+h2,
+p,
 ul,
 dl,
 dt,
-dd, 
+dd,
 li {
 	margin: 0;
 	padding: 0;
@@ -27,7 +27,6 @@ li {
 
 body {
 	background-color: #673399;
-	/* opacity: 0.8; */
 }
 
 .blind {
@@ -39,7 +38,6 @@ body {
 .portfolio {
 	margin: 100px auto;
 	width: 1080px;
-	/* background-color: bisque; */
 	display: flex;
 	flex-direction: column;
 }
@@ -48,7 +46,7 @@ body {
 
 .portfolio__header {
 	height: 140px;
-	display: inline-flex;
+	display: flex;
 	align-items: center;
 }
 
@@ -65,53 +63,53 @@ body {
 	top: 100px;
 	z-index: -1;
 	content: '';
-	background-color:  #ff4500;
+	background-color: #ff4500;
 	width: 245px;
 	height: 21px;
 }
+
 .portfolio__header h1::after {
 	display: block;
 	position: relative;
 	bottom: 18px;
 	z-index: -1;
 	content: '';
-	background-color:  #ff4500;
+	background-color: #ff4500;
 	width: 195px;
 	height: 21px;
 }
 
 .portfolio__header p {
 	height: fit-content;
-	line-height: 2;
 	width: 550px;
-	margin-left: 100px;
+	margin-left: 130px;
 	font-size: 14px;
 	line-height: 1.5;
 	color: #bd8fe8;
+	/* background-color: #fff; */
 }
 
 .portfolio__header p::before {
 	display: block;
 	position: relative;
 	top: 40px;
-	right: 95px;
+	right: 110px;
 	content: '';
-	width: 60px;
+	width: 80px;
 	height: 2px;
 	background-color: #bd8fe8;
 }
+
 /* 포트폴리오 메인 부분 - 프로젝트 지그재그 나열 */
 
 .portfolio__main {
 	margin-top: 100px;
 }
 
-/* 포트폴리오 리스트 외부 요소 - 마진, 방향 정렬*/
+/* 포트폴리오 리스트 외부 요소 - 마진, 방향 정렬 */
 
 .portfolio__list li {
 	display: flex;
-	/* background-color: white; */
-	/* z-index: -1; */
 }
 
 
@@ -119,20 +117,19 @@ body {
 	flex-direction: row-reverse;
 }
 
-.portfolio__list li + li {
+.portfolio__list li+li {
 	margin-top: 24px;
 }
-/* 포트폴리오 리스트 내부 요소 */
+
+/* 포트폴리오 리스트 내부 요소 - 사진, 키워드 */
 
 .portfolio__keyword {
-	opacity: 0.3;
-	width: 26%;
+	width: 36%;
 	height: 180px;
 	color: white;
 	font-size: 30px;
 	text-align: center;
 	line-height: 180px;
-	background-color: #673399;
 	opacity: 0.8;
 }
 
@@ -140,17 +137,21 @@ body {
 	background-image: url(./images/photo01.png);
 	background-size: cover;
 }
+
 .portfolio__keyword-craft {
 	background-image: url(./images/photo02.png);
 	background-size: cover;
 }
+
 .portfolio__keyword-scrap {
 	background-image: url(./images/photo03.png);
 	background-size: cover;
 }
 
+/* 포트폴리오 리스트 내부 요소 - 리스트 부분 */
+
 .portfolio__list dl {
-	width: 800px;
+	width: 1032px;
 	padding: 24px;
 	margin: 0;
 	background-color: white;
@@ -167,7 +168,7 @@ body {
 	margin-left: 10px;
 }
 
-.portfolio__list dd + dd {
+.portfolio__list dd+dd {
 	margin-top: 10px;
 }
 
@@ -177,8 +178,8 @@ body {
 	display: inline-block;
 	height: 8px;
 	width: 8px;
+	border: 1px solid #bd8fe8;
 	border-radius: 50%;
-	border: 1px;
 	position: relative;
 	right: 10px;
 }
