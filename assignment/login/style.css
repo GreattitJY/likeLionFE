@@ -10,12 +10,9 @@
 
 
 .login__text-welcome {
-    margin: 19px 16px;
-    width: 50vw;
-    height: 1vh;
+    margin: 19px 30px;
     font-size: 12px;
     line-height: 15px;
-    font-weight: 400px;
 }
 
 .login__btn--modal {
