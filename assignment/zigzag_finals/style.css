@@ -1,0 +1,154 @@
+/* Resets */
+body, h1, h2, ul, p {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+h1, h2 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+strong {
+  font-weight: inherit;
+}
+
+img {
+  vertical-align: top;
+}
+
+/* Typography */
+:root {
+    font-family: 'Montserrat', sans-serif;
+  	font-weight: 500;
+}
+
+/* Layouts */
+.wrapper {
+  width: 1080px;
+  margin: 0 auto;
+}
+
+/* Components */
+.section {
+  background-color: rebeccapurple;
+  color: white;
+  padding: 100px 0;
+}
+
+.section_white {
+  background-color: seashell;
+  color: salmon;
+}
+
+.section-header {
+  padding-bottom: 100px;
+  display: flex;
+}
+
+.section-title {
+  width: 26%;
+  flex-shrink: 0;
+  font-size: 40px;
+}
+
+.section-title strong {
+  position: relative;
+  z-index: 1;
+}
+
+.section-title strong::after {
+  content: ' ';
+  border-radius: 20px;
+  position: absolute;
+  left: 0;
+  right: -20px;
+  bottom: 0;
+  height: 0.5em;
+  background-color: orangered;
+  z-index: -1;
+}
+
+.section-description {
+  background-color: dodgerblue;
+  max-width: 600px;
+  margin: auto 0;
+}
+
+.course {
+  background-color: white;
+  color: #222;
+  display: flex;
+}
+
+.course-cover {
+  background-color: gold;
+  width: 26%;
+  flex-shrink: 0;
+}
+
+.course-contents {
+  flex-grow: 1;
+  padding: 24px;
+}
+
+.course-contents h2 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 32px;
+}
+
+.course + .course {
+  margin-top: 24px;
+}
+
+.course-cover {
+  position: relative;
+}
+
+.course-cover p {
+  color: white;
+  position: relative;
+  z-index: 10;
+  background-color: rgba(81,50,140,0.5);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+}
+
+.course-cover-background {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.lists {
+  padding-left: 20px;
+}
+
+.lists li {
+}
+
+.lists li + li {
+  margin-top: 10px;
+}
+
+.lists li::before {
+  content: ' ';
+  border-radius: 50%;
+  margin-right: 10px;
+  background-color: orange;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-left: -20px;
+}
