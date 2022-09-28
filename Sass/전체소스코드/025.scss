@@ -1,0 +1,9 @@
+$jae: 10;
+@while $jae > 1 {
+    $jae: $jae - 2; 
+    .content-#{$jae} {
+        width: 100px;
+        height: 100px;
+        background: red;
+    }
+}
