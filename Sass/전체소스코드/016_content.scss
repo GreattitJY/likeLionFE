@@ -1,8 +1,8 @@
 @mixin sample {
     display: flex;
     justify-content: center;
-    align-items: center;
     @content;
+    align-items: center; // 이부분이 콘텐츠 다음에 오면 흰색은 alin-items 위에 bcakground-color는 아래에 위치합니다!
 }
 
 .one {
