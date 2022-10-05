@@ -125,6 +125,8 @@ strong {
 @media (max-width: 768px) {
 	.wrap {
 		flex-direction: column;
+		gap: 6rem;
+		margin: 10rem auto;
 	}
 
 	.section-text p {
@@ -138,7 +140,47 @@ strong {
 	.section-field ul li {
 		flex-basis: 50%;
 	}
+
+	.section-field ul li a {
+		padding: 3rem 3rem 2rem 3rem;
+	}
+
+	.section-field .field-title {
+		font-size: 2.4rem;
+	}
 }
 
 /* 모바일 */
-@media (max-width: 500px) {}
+@media (max-width: 500px) {
+	.wrap {
+		gap: 4rem;
+		max-width: calc(100% - 3.2rem);
+	}
+
+	.section-text h1 {
+		font-size: 3.6rem;
+	}
+
+	.section-text p {
+		font-size: 1.4rem;
+		margin-top: 1.4rem;
+	}
+
+	.section-field ul {
+		flex-direction: column;
+		gap: 1.4rem;
+	}
+
+	.section-field ul li a {
+		padding: 3em 3em 2em 3em;
+		gap: 11.2rem;
+	}
+
+	.section-field .field-title {
+		font-size: 2em;
+	}
+
+	.section-field .field-go {
+		font-size: 1.4em;
+	}
+}
