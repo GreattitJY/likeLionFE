@@ -1,0 +1,77 @@
+:root {
+	--text-rgb: 255, 255, 255;
+	--positive-color: #439aff;
+	--negative-color: #eb5757;
+	--border-radius: 0.4em;
+}
+
+body {
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: #2d3848;
+	text-align: center;
+}
+
+h1 {
+	margin: -1em auto 1em 0;
+	color: #fff;
+}
+
+[class^="btn"] {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	margin: 2px;
+	padding: 0.8em 2em;
+	border-radius: var(--border-radius);
+	border: 1px solid #1a202c;
+	box-shadow: inset 1px 1px 0 0 rgba(255, 255, 255, 0.2);
+	background: linear-gradient(180deg, #343f50 0%, #2d3848 100%);
+	color: rgba(var(--text-rgb), 0.8);
+	vertical-align: middle;
+	line-height: 1;
+	user-select: none;
+}
+[class^="btn"]:not(:disabled):hover {
+	color: rgba(var(--text-rgb), 1);
+	background: linear-gradient(180deg, #384355 0%, #293343 100%);
+}
+[class^="btn"]:not(:disabled):active {
+	background: linear-gradient(0deg, #384355 0%, #293343 100%);
+	box-shadow: inset 1px 1px 0 0 rgba(0, 0, 0, 0.1);
+}
+[class^="btn"]:not(:disabled):focus {
+	outline: 3px solid rgba(67, 154, 255, 0.2);
+	box-shadow: 0 0 0 1px var(--positive-color);
+}
+[class^="btn"]:disabled {
+	color: rgba(var(--text-rgb), 0.2);
+	box-shadow: inset 1px 1px 0 0 rgba(0, 0, 0, 0.1);
+	background: rgba(0, 0, 0, 0.1);
+}
+
+[class$="positive"] {
+	color: var(--positive-color);
+}
+[class$="positive"]:not(:disabled):hover {
+	color: #fff;
+	background: linear-gradient(180deg, var(--positive-color) 0%, #318aff 100%);
+	border: 1px solid var(--positive-color);
+}
+[class$="positive"]:not(:disabled):active {
+	background: linear-gradient(0deg, var(--positive-color) 0%, #318aff 100%);
+}
+
+[class$="negative"] {
+	color: var(--negative-color);
+}
+[class$="negative"]:not(:disabled):hover {
+	color: #fff;
+	background: linear-gradient(180deg, var(--negative-color) 0%, #e24c4c 100%);
+	border: 1px solid var(--negative-color);
+}
+[class$="negative"]:not(:disabled):active {
+	background: linear-gradient(0deg, var(--negative-color) 0%, #e24c4c 100%);
+}

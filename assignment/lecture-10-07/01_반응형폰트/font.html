@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>폰트사이즈</title>
+		<style>
+			body,
+			p {
+				padding: 0;
+				margin: 0;
+			}
+			/* 최대 너비 1200px 기준, 1vw의 값 */
+			:root {
+				--max-width: 1200px;
+				--font-vw: 12;
+			}
+			/*  
+			min(): 쉼표로 구분된 표현식 목록에서 가장 작은 값을 선택합니다.
+			max(): 쉼표로 구분된 표현식 목록에서 가장 큰 값을 선택합니다.
+			clamp(): 설정된 이상적인 값을 기준으로 상한과 하한 사이의 값을 고정합니다.
+			*/
+
+			.max-width {
+				background: sandybrown;
+				width: var(--max-width);
+				max-width: 100%;
+				margin: 0 auto;
+			}
+			.fs100 {
+				font-size: 100px;
+			}
+			/* 원하는 폰트 : 100px, 최소 : 14px */
+			.fs100_responsive {
+				font-size: clamp(14px, 100vw / var(--font-vw), 100px);
+			}
+			.fs32 {
+				font-size: 32px;
+			}
+			/* 원하는 폰트 : 32px, 최소 : 14px */
+			.fs32_responsive {
+				font-size: clamp(14px, 32vw / var(--font-vw), 32px);
+			}
+			.fs16 {
+				font-size: 16px;
+			}
+			/* 원하는 폰트 : 16px, 최소 : 14px */
+			.fs16_responsive {
+				font-size: clamp(14px, 16vw / var(--font-vw), 16px);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="max-width">
+			<p class="fs100_responsive">폰트사이즈 100(반응형)</p>
+			<p class="fs100">폰트사이즈 100</p>
+			<p class="fs32_responsive">폰트사이즈 32(반응형)</p>
+			<p class="fs32">폰트사이즈 32</p>
+			<p class="fs16_responsive">폰트사이즈 16(반응형)</p>
+			<p class="fs16">폰트사이즈 16</p>
+		</div>
+	</body>
+</html>

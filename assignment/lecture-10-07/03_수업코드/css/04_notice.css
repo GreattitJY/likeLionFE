@@ -1,0 +1,34 @@
+.notice-list {
+	border-top: 2px solid #ffcf5c;
+}
+.notice-list li {
+}
+.notice-list li a {
+	display: flex;
+	gap: 10px;
+	align-items: center;
+	height: 72px;
+}
+.notice-list .category {
+	white-space: nowrap;
+}
+.notice-list .title {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	min-width: 0;
+}
+.notice-list .title .tit {
+	min-width: 0;
+}
+.ellipsis {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	word-break: break-all;
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+}
+.notice-list .date {
+	margin: auto 0 auto auto;
+}
