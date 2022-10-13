@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title></title>
+        <style>
+            table,
+            thead,
+            tbody,
+            tr,
+            th,
+            td {
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+        </style>
+    </head>
+    <body>
+        <button onclick="renderTable(userData)">유저정보</button>
+        <button onclick="getAgeMean(userData)">평균</button>
+        <table style="width: 100%" id="infoTable">
+            <thaed>
+                <th style="width: 15%">_id</th>
+                <th style="width: 15%">age</th>
+                <th style="width: 15%">eyeColor</th>
+                <th style="width: 15%">name</th>
+                <th style="width: 15%">gender</th>
+                <th style="width: 15%">email</th>
+                <th style="width: 15%">phone</th>
+            </thaed>
+            <tbody></tbody>
+        </table>
+
+        <script>
+            // /////////////////////
+            // // 연습문제 1
+            // let data = [10, 20, 30, 10, 20, 30, 40, 10]
+            // let mean = data.reduce((i, r) => i+r, 0)/data.length
+            // console.log(mean);
+            // let 분산 = 0;
+            // for (i of data) {
+            // 분산 += (i - mean)**2 / data.length
+            // console.log(분산);
+            // let 편차 = 분산**0.5
+            // console.log(편차);
+            // /////////////////////////////
+            // // 연습문제 2
+            // let data = '5, 4, 10, 5'.split(',')
+            // let mean = 0;
+            // for (i of data) {
+            // mean += i / data.length
+            // }
+            // console.log(mean);
+            // /////////////////////////////
+            // // 연습문제 3
+            // let data = [11, 22, 33, 111, 2].join('')
+            // console.log(data);
+            // let sum = 0
+            // for (i of data) {
+            // sum += parseInt(i);
+            // }
+            // console.log(sum);
+            // /////////////////////////////
+            // // 연습문제 4
+            // let num = 100000000;
+            // let res = num.toString().split('').reverse().map((val, idx) => idx % 3 ===0 && idx !== 0 ? val + ',' : val).reverse().join('');
+            // let data = 'hello world'
+            // let res = ''
+            // for (let i = 10; i >= 0; i--) {
+            // res += data[i]
+            // }
+            // console.log(res);
+            // let data = 'hello world'
+            // let res = data.split('').reverse().join('');
+            // function recur(data) {
+            // if (data.length <= 1){
+            // return data
+            // }
+            // return recur(data.slice(1)) + '' }
+            // console.log((Math.random()* 45) + 1);
+            // let arr = [];
+            // while (true) {
+            // if (arr.length >= 6) {
+            // break;
+            // }
+            // let num = parseInt(Math.random()*45 + 1)
+            // if (arr.indexOf(num) == -1) {
+            // arr.push(num)
+            // }
+            // }
+            // // arr.sort((a,b) => a - b)
+            // [...arr].sort((a,b) => a - b)
+            // console.log(arr);
+            /////////////////////
+            var userData = [
+                {
+                    _id: "5e80777f673acf89c007ff91",
+                    age: 27,
+                    eyeColor: "green",
+                    name: "Angelina Chang",
+                    gender: "female",
+                    email: "angelinachang@kangle.com",
+                    phone: "+1 (938) 477-2821",
+                },
+                {
+                    _id: "5e80777feee717674b817fd2",
+                    age: 25,
+                    eyeColor: "green",
+                    name: "Deidre Cobb",
+                    gender: "female",
+                    email: "deidrecobb@kangle.com",
+                    phone: "+1 (938) 477-2824",
+                },
+                {
+                    _id: "5e80777fac368a4578dda85d",
+                    age: 25,
+                    eyeColor: "blue",
+                    name: "Jolene Franks",
+                    gender: "female",
+                    email: "jolenefranks@kangle.com",
+                    phone: "+1 (985) 536-3981",
+                },
+                {
+                    _id: "5e80777ff3717874cbc78e44",
+                    age: 31,
+                    eyeColor: "brown",
+                    name: "Waters Hardin",
+                    gender: "male",
+                    email: "watershardin@kangle.com",
+                    phone: "+1 (938) 559-2224",
+                },
+                {
+                    _id: "5e80777fe36842ea9e024fcd",
+                    age: 34,
+                    eyeColor: "green",
+                    name: "Jody Chaney",
+                    gender: "female",
+                    email: "jodychaney@kangle.com",
+                    phone: "+1 (878) 587-2602",
+                },
+                {
+                    _id: "5e80777fafd591f57344eb33",
+                    age: 31,
+                    eyeColor: "green",
+                    name: "Ortiz Maldonado",
+                    gender: "male",
+                    email: "ortizmaldonado@kangle.com",
+                    phone: "+1 (986) 509-2753",
+                },
+                {
+                    _id: "5e80777f20e48e9ada226862",
+                    age: 25,
+                    eyeColor: "brown",
+                    name: "Stacy Burris",
+                    gender: "female",
+                    email: "stacyburris@kangle.com",
+                    phone: "+1 (864) 577-3500",
+                },
+                {
+                    _id: "5e80777faf334f84a2c90595",
+                    age: 33,
+                    eyeColor: "brown",
+                    name: "Davenport Levy",
+                    gender: "male",
+                    email: "davenportlevy@kangle.com",
+                    phone: "+1 (990) 600-2700",
+                },
+            ];
+            function getAgeMean(userData) {
+                console.log(
+                    userData.map((x) => x.age).reduce((a, b) => a + b, 0) /
+                        userData.length
+                );
+            }
+
+            function renderTable(userData) {
+                // console.log(userData[0]);
+                let tableBodyData = [];
+
+                for (const user of userData) {
+                    tableBodyData.push(`
+                    <tr>
+                      <td>${user._id}</td>
+                      <td>${user.age}</td>
+                      <td>${user.eyeColor}</td>
+                      <td>${user.name}</td>
+                      <td>${user.gender}</td>
+                      <td>${user.email}</td>
+                      <td>${user.phone}</td>
+                    </tr>
+                    `);
+                }
+                console.log(tableBodyData.join(""));
+                document.querySelector("#infoTable > tbody").innerHTML =
+                    tableBodyData.join("");
+            }
+        </script>
+    </body>
+</html>
