@@ -125,9 +125,10 @@ strong {
 @media (max-width: 768px) {
 	.wrap {
 		flex-direction: column;
-		gap: 6rem;
+		/* gap: 6rem; */
 		margin: 10rem auto;
 	}
+
 
 	.section-text p {
 		font-size: 1.8rem;
@@ -148,6 +149,7 @@ strong {
 	.section-field .field-title {
 		font-size: 2.4rem;
 	}
+
 }
 
 /* 모바일 */
