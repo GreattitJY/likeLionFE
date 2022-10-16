@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            .canvas {
+                width: 500px;
+                height: 500px;
+                margin: 0 auto;
+                background-color: black;
+            }
+            ul {
+                display: flex;
+                justify-content: space-around;
+            }
+            .canvas.red {
+                background-color: red;
+            }
+            .canvas.yellow {
+                background-color: yellow;
+            }
+            .canvas.blue {
+                background-color: blue;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="canvas"></div>
+        <ul>
+            <li>
+                <button type="button" class="btn-red">red</button>
+            </li>
+            <li>
+                <button type="button" class="btn-yellow">yellow</button>
+            </li>
+            <li>
+                <button type="button" class="btn-blue">blue</button>
+            </li>
+        </ul>
+        <script>
+            const canvas = document.querySelector(".canvas");
+            const btnRed = document.querySelector(".btn-red");
+            const btnYellow = document.querySelector(".btn-yellow");
+            const btnBlue = document.querySelector(".btn-blue");
+
+            const btnArr = [btnRed, btnYellow, btnBlue];
+
+            btnArr.forEach((item) => {
+                item.addEventListener("click", () => {
+                    canvas.classList.remove("red", "yellow", "blue");
+                    if (item.classList.contains("btn-red")) {
+                        canvas.classList.add("red");
+                    } else if (item.classList.contains("btn-yellow")) {
+                        canvas.classList.add("yellow");
+                    } else if (item.classList.contains("btn-blue")) {
+                        canvas.classList.add("blue");
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>
