@@ -1,4 +1,4 @@
-b# 자바스크립트
+# 자바스크립트
 
 -   HTML은 콘텐츠와 골격, CSS는 웹페이지의 레이아웃, JavaScript는 웹페이지의 동작
     -   ES1 (초판, 1997)
@@ -102,7 +102,7 @@ console.log(x, y, z);
     -   예약어를 사용할 수 없다.(예약어가 사용 불가능한 것은 아닙니다.)
     -   $, \_를 제외한 특수문자를 사용하지 않는다.
     -   대소문자를 구분한다.
-    -   class와 생성자 힘수는 첫 문자를 대문자로, 나머지는 보통 소문자로 시작한다.
+    -   class는 첫 문자를 대문자로, 나머지는 보통 소문자로 시작한다.
 -   var, let, const
     ```js
     if (true) {
@@ -202,7 +202,7 @@ console.log(x, y, z);
 
     ```js
     parseInt("1hello world"); // 1
-    Number("hello world"); // NaN
+    Number("1hello world"); // NaN
     ```
 
     -   Math
@@ -237,10 +237,13 @@ console.log(x, y, z);
         -   str.replace()
         -   str.concat()
         -   str.repeat()
+        -   str.splice() -> 업데이트 사항 : 배열에 있는 메서드입니다. str에는 없습니다.
         ```js
-        "hello".repeat(100);
-        "0".repeat(100);
-        "5".repeat(100).split("").map(Number);
+        'hello'.repeat(100)
+        '0'.repeat(100)
+        '5'.repeat(100).split('').map(Number)
+        '5'.repeat(100).split('').map(parseInt) -> 중간에 NaN이 됩니다. 2번째 인자가 진수여서 그렇습니다.
+        '5'.repeat(100).split('').map(e => parseInt(e))
         ```
 
 -   Boolean(논리값)
@@ -267,8 +270,8 @@ console.log(x, y, z);
         -   forEach
         -   map
         -   filter
-        -   push / pop - mutable
-        -   slice - immutable
+        -   push / pop - mutable(수정 가능한)
+        -   slice - immutable(수정이 불가한)
         -   splice - mutable
         -   reduce - immutable
         -   join
@@ -285,12 +288,13 @@ console.log(x, y, z);
         -   sort — mutable
 
     ```js
-    Array(100).fill(0);
-    Array(100).fill("hello");
-    Array(100).fill("hello".repeat(2));
-    Array(100)
-        .fill(0)
-        .map((value, index) => value + index);
+    Array(100).fill(0)
+    Array(100).fill('hello')
+    Array(100).fill('hello'.repeat(2))
+    Array(100).fill(0).map((value, index)=> value + index)
+    Object.keys(Array(100).fill(0)).map(Number)
+    [...Array(100).keys()]
+    Array.from({length: 100}, (v, i) => i + 1)
     ```
 
 -   Object(객체)
@@ -351,6 +355,13 @@ console.log(x, y, z);
     map.set(5, [100, 200]);
     map.set([1, 2], [100, 200]);
     map.get(5);
+    // let test = {
+    // 1:10,
+    // 2:20,
+    // 3:30
+    // }
+    // test.1 // error
+    // test[1] // 됩니다.
 
     let human = {
         name: "hojun3",
@@ -382,9 +393,9 @@ console.log(x, y, z);
     let a = new Set([1, 2, 3]);
     let b = new Set([3, 4, 5]);
     const 합집합 = new Set([...a, ...b]);
-    const 교집합 = new Set([...a].filter((x) => b.has(x)));
-    const 차집합1 = new Set([...a].filter((x) => !b.has(x)));
-    const 차집합2 = new Set([...b].filter((x) => !a.has(x)));
+    const 교집합 = [...a].filter((x) => b.has(x));
+    const 차집합1 = [...a].filter((x) => !b.has(x));
+    const 차집합2 = [...b].filter((x) => !a.has(x));
     ```
 
 # 조건문과 반복문
@@ -604,7 +615,7 @@ for (let i = 0; i < 10; i++) {
 
     -   화살표 함수를 콜백함수로 사용했을 경우의 장단점
         -   장점 : 네이밍을 안해도 됩니다.
-        -   장점 : 다른 곳에서 사용할 수가 없다.
+        -   단점 : 다른 곳에서 사용할 수가 없다.
         -   단점 : 콜백지옥에 빠질 수가 있습니다.
 
     ```js
