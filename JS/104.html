@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            class Robot {
+                constructor(name) {
+                    this.name = name;
+                }
+                sayYourName() {
+                    console.log(`삐리삐리 제 이름은 ${this.name}입니다.`);
+                }
+            }
+
+            class BabyRobot extends Robot {
+                constructor(name) {
+                    super(name);
+                    this.ownName = "아이크";
+                }
+                sayYourName() {
+                    console.log("안녕!");
+                }
+                sayBabyName() {
+                    super.sayYourName();
+                    console.log("Suceeding you, Father!");
+                }
+            }
+
+            const babyRobot = new BabyRobot("브랜든");
+        </script>
+    </body>
+</html>

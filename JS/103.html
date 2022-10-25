@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            class Robot {
+                constructor(name) {
+                    this.name = name;
+                }
+
+                sayYourName() {
+                    console.log(`삐리비리. 제 이름은 ${this.name}입니다.`);
+                }
+            }
+
+            class Me {
+                constructor(name, address, phoneNum) {
+                    this.name = name;
+                    this.address = address;
+                    this.phoneNum = phoneNum;
+                }
+
+                canWalk() {
+                    console.log("웨이드가 걷는다.");
+                }
+
+                teaching(student) {
+                    student.levelup();
+                }
+            }
+
+            class Student {
+                constructor(level) {
+                    this.level = level;
+                }
+                levelup() {
+                    this.level++;
+                }
+            }
+
+            const me = new Me("게리", "주소", "1234");
+            const student = new Student(1);
+        </script>
+    </body>
+</html>
