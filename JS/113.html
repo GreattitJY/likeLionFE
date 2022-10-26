@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            .target {
+                width: 150px;
+                height: 150px;
+                background-color: pink;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="target"></div>
+    </body>
+    <script>
+        const target = document.querySelector(".target");
+
+        // 사용자가 누르는 키의 상태를 저장하는 객체
+        let keys = {};
+
+        function move(event) {
+            keys[event.key] = true;
+        }
+
+        function stop(event) {
+            keys[event.key] = false;
+        }
+
+        document.addEventListener("keydown", move);
+        document.addEventListener("keyup", stop);
+
+        let pos = 0;
+
+        function play() {
+            if (keys.ArrowRight) {
+                pos += 2;
+                target.style.transform = `translateX(${pos}px)`;
+            }
+
+            if (keys.ArrowLeft) {
+                pos -= 2;
+                target.style.transform = `translateX(${pos}px)`;
+            }
+            window.requestAnimationFrame(play);
+        }
+
+        window.requestAnimationFrame(play);
+    </script>
+</html>
