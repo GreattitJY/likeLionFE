@@ -108,9 +108,9 @@ zip([10, 20, 30, 40, 50], "hello"); // 성공
 
     ```js
     // '123433332121'.match(/1/g)
-    // (3) ['1', '1', '1']
+    // (3) ['1', '1', '1']
     // 'hello world hello'.match(/hello/g)
-    // (2) ['hello', 'hello']
+    // (2) ['hello', 'hello']
 
     let str = "";
 
@@ -121,9 +121,9 @@ zip([10, 20, 30, 40, 50], "hello"); // 성공
     console.log(str.match(/8/g).length);
 
     // '123433332121'.split("")
-    // (12) ['1', '2', '3', '4', '3', '3', '3', '3', '2', '1', '2', '1']
+    // (12) ['1', '2', '3', '4', '3', '3', '3', '3', '2', '1', '2', '1']
     // ['1', '2', '3', '4', '3', '3', '3', '3', '2', '1', '2', '1'].filter(item => item === "1")
-    // (3) ['1', '1', '1']
+    // (3) ['1', '1', '1']
     // ['1', '1', '1'].length
     let str = "";
     for (let i = 1; i <= 10000; i++) {
@@ -132,7 +132,7 @@ zip([10, 20, 30, 40, 50], "hello"); // 성공
     console.log(str.split("").filter((item) => item === "8").length);
 
     // Array(10)
-    // (10) [empty × 10]
+    // (10) [empty × 10]
     // let test = Array(10)
     // undefined
     // test[2] = null
@@ -140,29 +140,29 @@ zip([10, 20, 30, 40, 50], "hello"); // 성공
     // test[3] = undefined
     // undefined
     // test
-    // (10) [empty × 2, null, undefined, empty × 6]
+    // (10) [empty × 2, null, undefined, empty × 6]
 
     // for (i of test){
     //     console.log(i)
     // }
 
     // Array(10).fill(0)
-    // (10) [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    // (10) [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
     // Array(10).fill(1).map((v, i) => v + i)
-    // (10) [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    // (10) [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
     // Array(10).fill(0).map((v, i) => v + i)
-    // (10) [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    // (10) [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
     // Array(10).fill(1).map((_, i) => i + 1)
-    // (10) [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    // (10) [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
     // Array(10).map((_, i) => i + 1)
-    // (10) [empty × 10]
+    // (10) [empty × 10]
 
     // [...Array(10)].map((_, i) => i + 1)
-    // (10) [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    // (10) [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
     Array(10000)
         .fill(0)
@@ -205,18 +205,18 @@ zip([10, 20, 30, 40, 50], "hello"); // 성공
     // }
     // let result = [...arr.join('')]
     // console.log(result)
-    // (31) ['1', '2', '3', '4', '5', '6', '7', '8', '9', '1', '0', '1', '1', '1', '2', '1', '3', '1', '4', '1', '5', '1', '6', '1', '7', '1', '8', '1', '9', '2', '0']
+    // (31) ['1', '2', '3', '4', '5', '6', '7', '8', '9', '1', '0', '1', '1', '1', '2', '1', '3', '1', '4', '1', '5', '1', '6', '1', '7', '1', '8', '1', '9', '2', '0']
 
     // arr = [10, 20, 30, 40]
-    // (4) [10, 20, 30, 40]
+    // (4) [10, 20, 30, 40]
     // arr.join('')
     // '10203040'
     // [...'10203040']
-    // (8) ['1', '0', '2', '0', '3', '0', '4', '0']
+    // (8) ['1', '0', '2', '0', '3', '0', '4', '0']
     // [...arr.join('')]
-    // (8) ['1', '0', '2', '0', '3', '0', '4', '0']
+    // (8) ['1', '0', '2', '0', '3', '0', '4', '0']
     // [...'hello']
-    // (5) ['h', 'e', 'l', 'l', 'o']
+    // (5) ['h', 'e', 'l', 'l', 'o']
     ```
 
 ### 1.3.2 워밍업 문제(daum)
@@ -940,11 +940,12 @@ let list2 = { value: 99, next: null, pre: null };
 let list3 = { value: 37, next: null, pre: null };
 let list4 = { value: 2, next: null, pre: null };
 
+list.head = list1;
 list1.next = list2;
 list2.next = list3;
 list3.next = list4;
 
-list1.pre = list.head;
+list1.pre = list;
 list2.pre = list1;
 list3.pre = list2;
 list4.pre = list3;
@@ -993,6 +994,396 @@ l.append(30);
 ```
 
 ### 1.4.3 트리와 그래프
+
+-   tree object로 구현하기(이미지 : tree만들기\_트리순회\_2.png)
+
+```js
+// 초벌작업
+// 이진 트리의 기본형태
+// value
+// child - left
+// child - right
+const tree = {
+    root: {
+        value: 5,
+        left: {
+            value: 3,
+            left: null,
+            right: null,
+        },
+        right: {
+            value: 8,
+            left: null,
+            right: null,
+        },
+    },
+};
+
+//문제 : tree만들기_트리순회_2.png를 보고 tree를 만드세요.
+const tree = {
+    root: {
+        value: 5,
+        left: {
+            value: 3,
+            left: {
+                value: 1,
+                left: null,
+                right: null,
+            },
+            right: {
+                value: 4,
+                left: null,
+                right: null,
+            },
+        },
+        right: {
+            value: 8,
+            left: {
+                value: 6,
+                left: null,
+                right: null,
+            },
+            right: {
+                value: 9,
+                left: null,
+                right: null,
+            },
+        },
+    },
+};
+
+//문제 : tree만들기.png를 보고 tree를 만드세요.
+
+const tree = {
+    root: {
+        value: 55,
+        left: {
+            value: 30,
+            left: {
+                value: 25,
+                left: {
+                    value: 21,
+                    left: null,
+                    right: null,
+                },
+                right: null,
+            },
+            right: {
+                value: 37,
+                left: null,
+                right: null,
+            },
+        },
+        right: {
+            value: 70,
+            left: {
+                value: 75,
+                left: null,
+                right: null,
+            },
+            right: {
+                value: 77,
+                left: null,
+                right: {
+                    value: 80,
+                    left: null,
+                    right: null,
+                },
+            },
+        },
+    },
+};
+
+tree.root.value;
+// 55
+tree.root.right.value;
+// 70
+tree.root.right.right.value[
+    // 77
+
+    // object나 array(기존 자료형)로 tree나 linked list를 구현할 수 있는데 왜 class로 구현할까요?
+    (5, [3, [1, [], []], [4, [], []]], [8, [6, [], []], [9, [], []]])
+];
+
+// 1. 더 lite한 모델을 만들기 위해
+// 2. 확장성(메서드 같은 것을 만들 수 있음)
+// 3. OOP(Object-Oriented Programming, 객체 지향 프로그래밍)에 철학에 맞기 때문에
+
+// node를 만들어서 삽입하는 식으로 구현
+const root = {
+    value: 55,
+    left: null,
+    right: null,
+};
+
+node1 = { value: 53, left: null, right: null };
+node2 = { value: 99, left: null, right: null };
+node3 = { value: 37, left: null, right: null };
+node4 = { value: 54, left: null, right: null };
+
+root.left = node1;
+root.right = node2;
+
+node1.left = node3;
+node1.right = node4;
+
+root.value;
+// 55
+root.right.value;
+// 99
+root.left.value;
+// 53
+root.left.left.value;
+// 37
+```
+
+-   tree를 class로 구현하기(이미지 : tree만들기\_트리순회\_.png)
+
+```js
+class Node {
+    constructor(data) {
+        this.data = data;
+        // this.child = [] // 2진트리가 아닌 트리를 만들 때 사용할 수 있습니다.
+        this.left = null;
+        this.right = null;
+    }
+}
+
+root = new Node(55);
+node1 = new Node(53);
+node2 = new Node(99);
+node3 = new Node(37);
+node4 = new Node(54);
+
+root.left = node1;
+root.right = node2;
+
+node1.left = node3;
+node1.right = node4;
+
+root.data;
+// 55
+root.left.data;
+// 53
+root.left.left.data;
+// 37
+root.left.right.data;
+// 54
+```
+
+-   트리 구현(완벽한 이진트리가 아닙니다.)
+
+```js
+class Node {
+    constructor(data) {
+        this.data = data;
+        // this.child = [] // 2진트리가 아닌 트리를 만들 때 사용할 수 있습니다.
+        this.left = null;
+        this.right = null;
+    }
+}
+
+class Tree {
+    constructor(data) {
+        let init = new Node(data);
+        this.root = init;
+        this.length = 0;
+    }
+
+    // length(){ // this.length와 이름이 같아서 작동하지 않습니다.
+    //     return this.length
+    // }
+
+    insert(data) {
+        let 새로운노드 = new Node(data);
+        let 순회용현재노드 = this.root;
+
+        while (순회용현재노드) {
+            if (data == 순회용현재노드.data) {
+                // 들어온 값이 존재하는 값이면 트리에 값을 추가하지 않습니다.
+                return;
+            } else if (data < 순회용현재노드.data) {
+                // 들어온 데이터가 작은 경우 왼쪽에 붙여야 합니다!
+                // 해당 데이터 부분이 비어있으면 데이터를 넣고, 비어있지 않으면 계속 타고 내려가야 합니다.
+                if (!순회용현재노드.left) {
+                    순회용현재노드.left = 새로운노드;
+                    this.length += 1;
+                    return;
+                }
+                순회용현재노드 = 순회용현재노드.left;
+            } else if (data > 순회용현재노드.data) {
+                // 들어온 데이터가 큰 경우 오른쪽에 붙여야 합니다!
+                // 해당 데이터 부분이 비어있으면 데이터를 넣고, 비어있지 않으면 계속 타고 내려가야 합니다.
+                if (!순회용현재노드.right) {
+                    순회용현재노드.right = 새로운노드;
+                    this.length += 1;
+                    return;
+                }
+                순회용현재노드 = 순회용현재노드.right;
+            }
+        }
+    }
+}
+
+let t = new Tree(5);
+t.insert(3);
+t.insert(8);
+t.insert(1);
+t.insert(4);
+t.insert(6);
+t.insert(9);
+```
+
+-   데이터 삽입
+
+```js
+class Node {
+    constructor(data) {
+        this.data = data;
+        // this.child = [] // 2진트리가 아닌 트리를 만들 때 사용할 수 있습니다.
+        this.left = null;
+        this.right = null;
+    }
+}
+
+class Tree {
+    constructor(data) {
+        let init = new Node(data);
+        this.root = init;
+        this.length = 0;
+    }
+
+    insert(data) {
+        let 새로운노드 = new Node(data);
+        let 순회용현재노드 = this.root;
+
+        while (순회용현재노드) {
+            if (data == 순회용현재노드.data) {
+                return;
+            } else if (data < 순회용현재노드.data) {
+                if (!순회용현재노드.left) {
+                    순회용현재노드.left = 새로운노드;
+                    this.length += 1;
+                    return;
+                }
+                순회용현재노드 = 순회용현재노드.left;
+            } else if (data > 순회용현재노드.data) {
+                if (!순회용현재노드.right) {
+                    순회용현재노드.right = 새로운노드;
+                    this.length += 1;
+                    return;
+                }
+                순회용현재노드 = 순회용현재노드.right;
+            }
+        }
+    }
+}
+let t = new Tree(5);
+t.insert(3);
+t.insert(8);
+t.insert(1);
+t.insert(4);
+t.insert(6);
+t.insert(9);
+```
+
+-   트리 순회
+
+```js
+class Node {
+    constructor(data) {
+        this.data = data;
+        // this.child = [] // 2진트리가 아닌 트리를 만들 때 사용할 수 있습니다.
+        this.left = null;
+        this.right = null;
+    }
+}
+
+class Tree {
+    constructor(data) {
+        let init = new Node(data);
+        this.root = init;
+        this.length = 0;
+    }
+
+    insert(data) {
+        let 새로운노드 = new Node(data);
+        let 순회용현재노드 = this.root;
+
+        while (순회용현재노드) {
+            if (data == 순회용현재노드.data) {
+                return;
+            } else if (data < 순회용현재노드.data) {
+                if (!순회용현재노드.left) {
+                    순회용현재노드.left = 새로운노드;
+                    this.length += 1;
+                    return;
+                }
+                순회용현재노드 = 순회용현재노드.left;
+            } else if (data > 순회용현재노드.data) {
+                if (!순회용현재노드.right) {
+                    순회용현재노드.right = 새로운노드;
+                    this.length += 1;
+                    return;
+                }
+                순회용현재노드 = 순회용현재노드.right;
+            }
+        }
+    }
+
+    //깊스너큐
+    DFS() {
+        // 깊이우선탐색, DFS(Depth First Search)
+        // Stack 이용!
+        let 방문경로 = [];
+        let 스택 = [this.root];
+
+        while (스택.length !== 0) {
+            let current = 스택.pop();
+            if (current.right) {
+                스택.push(current.right);
+            }
+            if (current.left) {
+                스택.push(current.left);
+            }
+            방문경로.push(current.data);
+        }
+
+        return 방문경로;
+    }
+
+    BFS() {
+        // 너비우선탐색, BFS(Breadth First Search)
+        // Queue 이용!
+        let 방문경로 = [];
+        let 큐 = [this.root];
+
+        while (큐.length !== 0) {
+            let current = 큐.shift();
+            if (current.right) {
+                큐.push(current.right);
+            }
+            if (current.left) {
+                큐.push(current.left);
+            }
+            방문경로.push(current.data);
+        }
+
+        return 방문경로;
+    }
+}
+
+let t = new Tree(5);
+t.insert(3);
+t.insert(8);
+t.insert(1);
+t.insert(4);
+t.insert(6);
+t.insert(9);
+
+t.DFS();
+t.BFS();
+```
 
 ### 1.4.4 정렬 알고리즘
 
@@ -1324,9 +1715,9 @@ console.log(insertSort(arr));
     // let a = [10, 20, 30]
     // let b = [100, 200, 300]
     // [...a, ...b]
-    // (6) [10, 20, 30, 100, 200, 300]
+    // (6) [10, 20, 30, 100, 200, 300]
     // a.concat(b)
-    // (6) [10, 20, 30, 100, 200, 300]
+    // (6) [10, 20, 30, 100, 200, 300]
     let 입력값 = [5, 10, 66, 77, 54, 32, 11, 15];
 
     function 병합정렬(입력배열) {
@@ -1610,7 +2001,7 @@ x.toString(2).replace(/1/g, '#').replace(/0/g, ' ')
 '1001'.padStart(10, '0');
 ```
 
-### 2.1.1 다트 게임(18년)
+### 2.1.2 다트 게임(18년)
 
 -   https://school.programmers.co.kr/learn/courses/30/lessons/17682
 -   문자열 파싱(Parsing)
@@ -1710,7 +2101,7 @@ x.toString(2).replace(/1/g, '#').replace(/0/g, ' ')
     }
     ```
 
-### 2.1.1 캐시(18년)
+### 2.1.3 캐시(18년)
 
 -   링크 : https://school.programmers.co.kr/learn/courses/30/lessons/17680?language=javascript
 -   문제풀이
@@ -1756,4 +2147,243 @@ function solution(cacheSize, cities) {
     }
     return time;
 }
+```
+
+### 2.1.4 오픈채팅방(19년)
+
+-   링크 : https://school.programmers.co.kr/learn/courses/30/lessons/42888?language=javascript
+-   입력레코드
+
+```js
+["Enter uid1234 Muzi", "Enter uid4567 Prodo", "Leave uid1234", "Enter uid1234 Prodo", "Change uid4567 Ryan"];
+```
+
+-   풀이를 위한 기본 문법
+
+```js
+let test = ["A 10 !", "B 20 !", "A 22", "B 20 @", "A 21 @"];
+
+test.forEach((s) => console.log(s));
+
+test.forEach((s) => {
+    console.log(s);
+    console.log(s.split(" "));
+    console.log("---------");
+});
+
+test.forEach((s) => {
+    console.log(s);
+    const [a, b, c] = s.split(" ");
+    console.log(a, b, c);
+    console.log("---------");
+});
+```
+
+-   step 별 풀이
+
+```js
+{
+    '아이디': '닉네임',
+    '아이디': '닉네임',
+    '아이디': '닉네임',
+    //...
+}
+// 풀이 방식
+[
+    "Enter uid1234 Muzi",
+    "Enter uid4567 Prodo",
+    "Leave uid1234",
+    "Enter uid1234 Prodo",
+    "Change uid4567 Ryan"
+]
+
+{
+    'uid1234': 'Prodo',
+    'uid4567': 'Ryan',
+    //...
+}
+
+['uid1234', '님이 들어왔습니다.']
+['uid4567', '님이 들어왔습니다.']
+['uid1234', '님이 나갔습니다.']
+['uid1234', '님이 들어왔습니다.']
+
+[
+    "Prodo님이 들어왔습니다.",
+    "Ryan님이 들어왔습니다.",
+    "Prodo님이 나갔습니다.",
+    "Prodo님이 들어왔습니다."
+]
+
+// step 1
+let record = [
+    "Enter uid1234 Muzi",
+    "Enter uid4567 Prodo",
+    "Leave uid1234",
+    "Enter uid1234 Prodo",
+    "Change uid4567 Ryan",
+];
+
+function solution(record){
+    let answer = []
+    let user = {}
+    for (const i of record){
+        const [상태, 아이디, 닉네임] = i.split(' ')
+        answer.push([상태, 아이디, 닉네임])
+    }
+    return answer
+}
+
+solution(record)
+
+// step 2
+let record = [
+    "Enter uid1234 Muzi",
+    "Enter uid4567 Prodo",
+    "Leave uid1234",
+    "Enter uid1234 Prodo",
+    "Change uid4567 Ryan",
+];
+
+function solution(record){
+    let answer = []
+    let 유저정보 = {}
+    for (const i of record){
+        const [상태, 아이디, 닉네임] = i.split(' ')
+        // answer.push([상태, 아이디, 닉네임])
+        if (상태 === 'Enter'){
+            유저정보[아이디] = 닉네임
+            answer.push([아이디, '님이 들어왔습니다.'])
+        } else if (상태 === 'Leave'){
+            answer.push([아이디, '님이 나갔습니다.'])
+        } else if (상태 === 'Change'){
+            유저정보[아이디] = 닉네임
+        }
+    }
+    //console.log(유저정보)
+    answer = answer.map(item => 유저정보[item[0]] + item[1])
+    return answer
+}
+
+solution(record)
+```
+
+### 2.1.5 오픈채팅방(19년)
+
+-   링크 : https://school.programmers.co.kr/learn/courses/30/lessons/42889
+
+```js
+// 스테이지에 도달했으나 아직 클리어하지 못한 플레이어의 수 / 스테이지에 도달한 플레이어 수
+
+// 실패율 === 아직 클리어 못한 플레이어의 수 / 도달한 플레이어 수
+// 전체 스테이지의 개수 N
+// 스테이지의 번호가 담긴 배열 stages가 매개변수
+
+// 실패율이 높은 스테이지부터 내림차순으로 스테이지의 번호가 담겨있는 배열을 return 하도록 solution 함수
+// 만약 실패율이 같은 스테이지가 있다면 작은 번호의 스테이지가 먼저 오도록 하면 된다. (오름차순)
+
+// N	stages                  	result
+// 5	[2, 1, 2, 6, 2, 4, 3, 3]	[3, 4, 2, 1, 5]
+// 4	[4, 4, 4, 4, 4]	            [4, 1, 2, 3]
+
+// 스테이지에 도달한 사람의 수
+// 1stage === 1
+// 2stage === 3
+// 3stage === 2
+// 4stage === 1
+// 5stage === 0
+
+// 실패율
+// 1stage === 1/8
+// 2stage === 3/7 === 3/(8-1)
+// 3stage === 2/4 === 2/(7-3)
+// 4stage === 1/2 === 1/(4-2)
+// 5stage === 0/1 === 0/(2-1)
+
+// 문제 풀이를 위한 기본 메서드
+[2, 1, 2, 6, 2, 4, 3, 3]
+    .filter((user) => user === 3)
+    [
+        // (2) [3, 3]
+        (2, 1, 2, 6, 2, 4, 3, 3)
+    ].filter((user) => user === 3).length;
+// 2
+
+// step 1 스테이지에 머물고 있는 사람 리스트
+function solution(N, stages) {
+    let 실패율 = [];
+    let 유저수 = stages.length;
+
+    for (let i = 1; i < N; i++) {
+        let 도달한사람수 = stages.filter((user) => user === i);
+        실패율.push(도달한사람수);
+    }
+    return 실패율;
+}
+
+solution(5, [2, 1, 2, 6, 2, 4, 3, 3]);
+
+// step 2 실패율
+function solution(N, stages) {
+    let 실패율 = [];
+    let 유저수 = stages.length;
+
+    for (let i = 1; i < N; i++) {
+        let 도달한사람수 = stages.filter((user) => user === i).length;
+        실패율.push(도달한사람수 / 유저수);
+        유저수 -= 도달한사람수;
+        console.log(유저수, 도달한사람수);
+    }
+    return 실패율;
+}
+
+solution(5, [2, 1, 2, 6, 2, 4, 3, 3]);
+
+// step 3 정렬
+function solution(N, stages) {
+    let 실패율 = [];
+    let 유저수 = stages.length;
+
+    for (let i = 1; i <= N; i++) {
+        let 도달한사람수 = stages.filter((user) => user === i).length;
+        let 확률 = 도달한사람수 / 유저수;
+        실패율.push({ 스테이지: i, 확률 });
+        유저수 -= 도달한사람수;
+        console.log(유저수, 도달한사람수);
+    }
+
+    // 정렬 기준 확인 필요
+    실패율.sort((a, b) => {
+        if (a.확률 < b.확률) return 1;
+        if (a.확률 > b.확률) return -1;
+        if (a.확률 === b.확률) return 0;
+    });
+    return 실패율;
+}
+
+solution(5, [2, 1, 2, 6, 2, 4, 3, 3]);
+
+// step 4 스테이지만 출력
+function solution(N, stages) {
+    let 실패율 = [];
+    let 유저수 = stages.length;
+
+    for (let i = 1; i <= N; i++) {
+        let 도달한사람수 = stages.filter((user) => user === i).length;
+        let 확률 = 도달한사람수 / 유저수;
+        실패율.push({ 스테이지: i, 확률 });
+        유저수 -= 도달한사람수;
+        console.log(유저수, 도달한사람수);
+    }
+
+    // 정렬 기준 확인 필요
+    실패율.sort((a, b) => {
+        if (a.확률 < b.확률) return 1;
+        if (a.확률 > b.확률) return -1;
+        if (a.확률 === b.확률) return 0;
+    });
+    return 실패율.map((object) => object.스테이지);
+}
+
+solution(5, [2, 1, 2, 6, 2, 4, 3, 3]);
 ```
