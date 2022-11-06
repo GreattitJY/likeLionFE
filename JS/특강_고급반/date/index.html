@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <script>
+        const time = new Date();
+
+        console.log(time.getFullYear());
+        console.log(time.getYear());
+        console.log(time.getMonth());
+        console.log(time.getDate());
+        console.log(time.getDay());
+        console.log(time.getHours());
+        console.log(time.getMinutes());
+        console.log(time.getSeconds());
+
+        console.log(time.getUTCFullYear());
+        console.log(time.getUTCMonth());
+        console.log(time.getUTCDate());
+        console.log(time.getUTCMinutes());
+        console.log(time.getUTCSeconds());
+        // getUTCD는 국제협정시간으로 영국 시간이 기준이 된다.
+        // 한국시간이 오전 8시일 경우 
+        // getUTCDate 반환값은 5일일 것입니다.
+        // 전세계 서비스를 대상으로 서비스
+        // getUTCDHours + 9를 통해 한국시간 가능
+
+        const hour = time.getHours() > 12 ? time.getHours() - 12 : time.getHours()
+        const 오전오후 = time.getHours() > 12 ? '오후' : '오전'
+        const minutes = time.getMinutes() > 10 ? time.getMinutes() : '0' + time.getMinutes()
+
+        const now = `지금은 ${오전오후} ${hour} 시 ${minutes} 분입니다.`
+        console.log(now);
+    </script>
+</body>
+
+</html>
