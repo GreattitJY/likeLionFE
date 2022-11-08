@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+    <link rel="stylesheet" href="./reset.css">
+    <style>
+        input::placeholder {
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body style="background: radial-gradient(96.74% 276.79% at 3.59% 5.28%, #F0F4FF 0%, #A5B6EE 100%) no-repeat;">
+
+    <h1>
+        <img src="./img/weniv-logo.svg" alt="weniv 로고" style="width: 244px; display: block; margin: 50px auto">
+    </h1>
+
+    <article id="app" style="width: 400px; display: flex; flex-direction: column; align-items: center; margin: 0 auto 50px; background: linear-gradient(144.07deg, #5572BB 2.13%, #374B7C 102.97%); box-shadow: 20px 20px 60px 10px rgba(55, 75, 124, 0.4);
+        border-radius: 16px;">
+
+        <h2 style="color: white; margin-top: 40px; font-size: 24px;">TIMER</h2>
+        <hr style="background: #3D538A; width: 312px; height: 1px; border: none; margin-bottom: 33px;">
+
+        <form style="color: #A5B6EE; font-size: 12px; margin-bottom: 40px;">
+            <fieldset style="display:flex; gap: 10px; border: none;">
+                <legend style="overflow: hidden;
+            position: absolute;
+            width: 0;
+            height: 0;
+            line-height: 0;
+            text-indent: -9999px;">타이머</legend>
+                <div>
+                    <label for="HRS"
+                        style="display: flex; flex-direction: column; align-items: center; margin-bottom: 4px;">HRS</label>
+                    <input id="HRS" type="text" style="width:80px; height: 80px; background:  linear-gradient(314.28deg, #304577 0%, #4C65A0 83%); border: 1px solid #354971;
+                    border-radius: 4px; font-size: 40px; text-align: center; color: white;" placeholder="00">
+                </div>
+
+                <div>
+                    <label for=" MIN"
+                        style="display: flex; flex-direction: column; align-items: center; margin-bottom: 4px;">MIN</label>
+                    <input id="MIN" type="text" style="width:80px; height: 80px; background:  linear-gradient(314.28deg, #304577 0%, #4C65A0 83%); border: 1px solid #354971;
+                    border-radius: 4px; font-size: 40px; text-align: center; color: white;" placeholder="00">
+                </div>
+
+                <div>
+                    <label for="SEC"
+                        style="display: flex; flex-direction: column; align-items: center; margin-bottom: 4px;">SEC</label>
+                    <input id="SEC" type="text" style="width:80px; height: 80px; background:  linear-gradient(314.28deg, #304577 0%, #4C65A0 83%); border: 1px solid #354971;
+                    border-radius: 4px; font-size: 40px; text-align: center; color: white;" placeholder="00">
+                </div>
+            </fieldset>
+        </form>
+
+        <div style="margin-bottom: 40px;">
+            <button id="btn-start"
+                style="background: #324577; box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.05); border-radius: 50px; border: none; padding: 15px 23px; font-size: 14px; color: #617199; cursor: pointer;"
+                type="button">START</button>
+            <button id="btn-reset"
+                style="background: #324577; box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.05); border-radius: 50px; border: none; padding: 15px 23px; font-size: 14px; color: #617199; cursor: pointer;"
+                type="button">RESET</button>
+        </div>
+    </article>
+
+    <script>
+        const btnStart = document.querySelector('#btn-start')
+        const btnReset = document.querySelector('#btn-reset')
+        const form = document.querySelector('form')
+
+        form.addEventListener('click', (event) => {
+            event.preventDefault()
+        })
+
+        btnStart.addEventListener('click', () => {
+
+        })
+
+        btnReset.addEventListener('click', () => {
+
+        })
+    </script>
+</body>
+
+</html>
