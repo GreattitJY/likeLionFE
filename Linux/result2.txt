@@ -1,0 +1,9 @@
+total 24
+drwxr-xr-x@  8 jy  staff  256 11  9 13:46 .
+drwxr-xr-x@ 21 jy  staff  672 11  9 13:46 ..
+-rw-r--r--   1 jy  staff    0 11  9 13:24 001.html
+-rw-r--r--   1 jy  staff    0 11  9 13:24 002.html
+-rw-r--r--   1 jy  staff   13 11  9 13:32 003.txt
+-rw-r--r--   1 jy  staff    0 11  9 13:46 result.txt
+-rw-r--r--   1 jy  staff   12 11  9 13:46 test.txt
+-rw-r--r--   1 jy  staff   12 11  9 13:46 test2.txt
