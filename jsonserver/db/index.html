@@ -6,6 +6,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>제코베 스토어 관리자 페이지 CRUD</title>
+    <style>
+        section {
+            position: relative;
+            width: 500px;
+            margin: 15px 0;
+        }
+
+        section input {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        section button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        section button+button {
+            position: absolute;
+            top: 40px;
+            right: 10px;
+        }
+    </style>
 </head>
 
 <body>
@@ -28,65 +52,53 @@
     <input id="inp-date" type="date" />
 
     <button type="button" id="btn-register">상품등록하기</button>
-    <button type="button" id="btn-update">상품업데이트하기</button>
 
     <script>
+
+        const createItemList = (item) => {
+            const $container = document.createElement('section')
+            const $productName = document.createElement('h2')
+            const $price = document.createElement('p')
+            const $btnDelete = document.createElement("button")
+            const $btnUpdate = document.createElement("button")
+
+            $productName.innerText = item["productName"]
+            $price.innerText = item["price"]
+            $btnDelete.innerText = "삭제"
+            $btnUpdate.innerText = "수정"
+
+            $container.appendChild($productName)
+            $container.appendChild($price)
+            $container.appendChild($btnDelete)
+            $container.appendChild($btnUpdate)
+
+            document.body.appendChild($container)
+
+            $btnDelete.addEventListener('click', () => {
+                btnDelete(item, $container)
+            })
+            $btnUpdate.addEventListener('click', () => {
+                btnUpdate(item, $container)
+            })
+        }
+
         // Read
-        const btnLoad = document.querySelector("#btn-load");
-        btnLoad.addEventListener("click", (event) => {
-            // console.log("눌렀다.");
-            fetch("http://localhost:3001/product", {
+        const $btnLoad = document.querySelector("#btn-load")
+        $btnLoad.addEventListener('click', (e) => {
+            fetch('http://localhost:3001/product', {
                 method: "GET",
             })
-                .then((response) => response.json())
+                .then(response => response.json())
                 .then((data) => {
-                    for (item of data) {
-                        // console.log(i);
-                        const $container =
-                            document.createElement("section");
-                        const $productName = document.createElement("h2");
-                        const $price = document.createElement("p");
-                        const $btn = document.createElement("button")
-
-                        $productName.innerText = item.productName;
-                        $price.innerText = item.price;
-                        $btn.innerText = `${item.id}번 아이템 삭제`
-
-                        $container.appendChild($productName);
-                        $container.appendChild($price);
-                        $container.appendChild($btn);
-
-                        document.body.appendChild($container);
+                    for (const item of data) {
+                        createItemList(item)
                     }
-                });
-        });
-
-        //create
-        const btnRegister = document.querySelector("#btn-register");
-        btnRegister.addEventListener("click", (event) => {
-            // console.log("눌렀다.");
-
-            const productInfo = {
-                productName: document.querySelector("#inp-name").value,
-                price: document.querySelector("#inp-price").value,
-                stockCount: document.querySelector("#inp-stock").value,
-                viewCount: 0,
-                pubDate: document.querySelector("#inp-date").value,
-                modDate: document.querySelector("#inp-date").value,
-            }
-
-            fetch("http://localhost:3001/product", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(productInfo),
-            })
+                })
         })
 
-        //update
-        const btnUpdate = document.querySelector("#btn-update");
-        btnUpdate.addEventListener("click", (event) => {
-            // console.log("눌렀다.");
-
+        // Create
+        const $btnRegister = document.querySelector("#btn-register")
+        $btnRegister.addEventListener('click', (e) => {
             const productInfo = {
                 productName: document.querySelector("#inp-name").value,
                 price: document.querySelector("#inp-price").value,
@@ -95,33 +107,73 @@
                 pubDate: document.querySelector("#inp-date").value,
                 modDate: document.querySelector("#inp-date").value,
             };
-            fetch(`http://localhost:3001/product/`, {
-                method: "PUT",
+
+            fetch('http://localhost:3001/product', {
+                method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(productInfo),
-            }).then(response => response.json())
-        });
+            })
+                .then(response => response.json())
+                .then(item => {
+                    createItemList(item)
+                })
+        })
 
-            // delete
-            // const btnRegister = document.querySelector("#상품등록하기");
-            // btnRegister.addEventListener("click", (event) => {
-            //     // console.log("눌렀다.");
+        // Update
 
-            //     const productInfo = {
-            //         productName: document.querySelector("#productname").value,
-            //         price: document.querySelector("#productprice").value,
-            //         stockCount: document.querySelector("#productstock").value,
-            //         viewCount: 0,
-            //         pubDate: document.querySelector("#productpubdate").value,
-            //         modDate: document.querySelector("#productpubdate").value,
-            //     };
+        const btnUpdate = ({ id }, $container) => {
+            const $h2 = $container.querySelector('h2')
+            const $p = $container.querySelector('p')
+            if (!$container.querySelector('input')) {
+                const $productName = document.createElement('input')
+                const $price = document.createElement('input')
 
-            //     fetch("http://localhost:3001/product", {
-            //         method: "DELETE",
-            //         // headers: { "Content-Type": "application/json" },
-            //         // body: JSON.stringify(productInfo),
-            //     });
-            // });
+                $productName.type = "text"
+                $price.type = "number"
+
+                $productName.value = $h2.innerText
+                $price.value = $p.innerText
+
+                $h2.style.display = "none"
+                $p.style.display = "none"
+
+                $container.prepend($price);
+                $container.prepend($productName);
+            } else {
+                const $inpName = $container.querySelector("input[type=text]")
+                const $inpPrice = $container.querySelector("input[type=number]")
+                const updateInfo = {
+                    productName: $inpName.value,
+                    price: +$inpPrice.value,
+                };
+                fetch(`http://localhost:3001/product/${id}`, {
+                    method: "PATCH",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(updateInfo),
+                })
+                    .then(() => {
+                        $h2.style.display = "block";
+                        $p.style.display = "block"
+
+                        $h2.textContent = updateInfo["productName"];
+                        $p.textContent = updateInfo["price"];
+
+                        $inpName.remove();
+                        $inpPrice.remove();
+
+                    })
+            }
+        }
+
+        // Delete 
+        const btnDelete = ({ id }, $container) => {
+            fetch(`http://localhost:3001/product/${id}`, {
+                method: "DELETE",
+            })
+                .then(() => {
+                    $container.remove();
+                })
+        }
     </script>
 </body>
 

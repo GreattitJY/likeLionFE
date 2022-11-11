@@ -2,7 +2,7 @@
   "product": [
     {
       "id": 2,
-      "productName": "우당탕탕 라이캣의 실험실 스티커 팩",
+      "productName": "수정수정2",
       "price": 3500,
       "stockCount": 1000,
       "thumbnailImg": "asset/img/2/thumbnailImg.jpg",
@@ -15,7 +15,9 @@
       ],
       "viewCount": 0,
       "pubDate": "2022-02-28",
-      "modDate": "2022-02-28"
+      "modDate": "2022-02-28",
+      "$productName": "수정",
+      "$price": 3500
     },
     {
       "id": 3,
@@ -132,96 +134,6 @@
       "viewCount": 0,
       "pubDate": "2022-02-28",
       "modDate": "2022-02-28"
-    },
-    {
-      "productName": "123",
-      "price": "1",
-      "stockCount": "22",
-      "viewCount": 0,
-      "pubDate": "2022-11-09",
-      "modDate": "2022-11-09",
-      "id": 8
-    },
-    {
-      "productName": "test1",
-      "price": "123",
-      "stockCount": "1",
-      "viewCount": 0,
-      "pubDate": "2022-11-02",
-      "modDate": "2022-11-02",
-      "id": 9
-    },
-    {
-      "productName": "a",
-      "price": "2",
-      "stockCount": "1",
-      "viewCount": 0,
-      "pubDate": "2022-11-17",
-      "modDate": "2022-11-17",
-      "id": 10
-    },
-    {
-      "productName": "123",
-      "price": "123",
-      "stockCount": "2222",
-      "viewCount": 0,
-      "pubDate": "2022-11-10",
-      "modDate": "2022-11-10",
-      "id": 11
-    },
-    {
-      "productName": "메롱",
-      "price": "12",
-      "stockCount": "1",
-      "viewCount": 0,
-      "pubDate": "2022-11-02",
-      "modDate": "2022-11-02",
-      "id": 12
-    },
-    {
-      "productName": "aaa",
-      "price": "55",
-      "stockCount": "1",
-      "viewCount": 0,
-      "pubDate": "2022-11-02",
-      "modDate": "2022-11-02",
-      "id": 13
-    },
-    {
-      "productName": "aaa",
-      "price": "22",
-      "stockCount": "",
-      "viewCount": 0,
-      "pubDate": "",
-      "modDate": "",
-      "id": 14
-    },
-    {
-      "productName": "aaa",
-      "price": "214",
-      "stockCount": "",
-      "viewCount": 0,
-      "pubDate": "",
-      "modDate": "",
-      "id": 15
-    },
-    {
-      "productName": "test",
-      "price": "1",
-      "stockCount": "",
-      "viewCount": 0,
-      "pubDate": "",
-      "modDate": "",
-      "id": 16
-    },
-    {
-      "productName": "aaa",
-      "price": "55",
-      "stockCount": "1",
-      "viewCount": 0,
-      "pubDate": "2022-11-02",
-      "modDate": "2022-11-02",
-      "id": 17
     }
   ]
 }
