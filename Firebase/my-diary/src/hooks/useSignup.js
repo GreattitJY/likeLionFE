@@ -18,6 +18,7 @@ export const useSignup = () => {
         createUserWithEmailAndPassword(appAuth, email, password)
             .then((userCredential) => {
                 // Signed in 
+                console.log(userCredential);
                 const user = userCredential.user;
 
                 if (!user) {

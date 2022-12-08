@@ -1,7 +1,7 @@
-import styles from "./Nav.module.css";
-import { Link } from "react-router-dom";
-import { useLogout } from "../hooks/useLogout";
-import { useAuthContext } from "../hooks/useAuthContext";
+import styles from './Nav.module.css'
+import { Link } from 'react-router-dom'
+import { useLogout } from '../hooks/useLogout'
+import { useAuthContext } from '../hooks/useAuthContext';
 
 export default function Nav() {
     const { logout } = useLogout();
@@ -11,7 +11,7 @@ export default function Nav() {
         <nav className={styles.nav}>
             <h1 className={styles.tit}>두근두근 비밀일기</h1>
             <ul className={styles.list_nav}>
-                {!user && (
+                {!user &&
                     <>
                         <li>
                             <Link to="/login">로그인</Link>
@@ -20,16 +20,14 @@ export default function Nav() {
                             <Link to="/signup">회원가입</Link>
                         </li>
                     </>
-                )}
-                {user && (
+                }
+                {user &&
                     <li>
-                        <strong>환영합니다! {user.displayName} 님! </strong>
-                        <button type="button" onClick={logout}>
-                            로그아웃
-                        </button>
+                        <strong>환영합니다! {user.displayName} 님!</strong>
+                        <button type='button' onClick={logout}>로그아웃</button>
                     </li>
-                )}
+                }
             </ul>
         </nav>
-    );
+    )
 }
